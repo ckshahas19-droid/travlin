@@ -1,0 +1,6 @@
+{
+  "name": "TRAVLIN Travel Agency",
+  "description": "A premium traveling agency landing page featuring an immersive background video, elegant navigation, and bold overlapping typography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
