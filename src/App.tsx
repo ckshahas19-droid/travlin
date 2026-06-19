@@ -3,70 +3,146 @@ import { motion, AnimatePresence } from "motion/react";
 import { 
   Menu, X, Mail, Phone, MapPin, Check, Send, Sparkles, Compass, Shield, 
   Award, Plane, GraduationCap, Map, Globe, Heart, ArrowRight, Star, 
-  Search, Users, Calendar, Clock, DollarSign, ChevronRight, CheckCircle2 
+  Search, Users, Calendar, Clock, DollarSign, ChevronRight, CheckCircle2,
+  Instagram
 } from "lucide-react";
 
 // Beautiful SVG vector representation of the luxury TRAVLIN emblem uploaded by the user
 export function TravlinEmblem({ className = "w-12 h-12" }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg className={className} viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
-        {/* Soft, rich metallic copper-bronze gradient to simulate luxury 3D foil finish */}
-        <linearGradient id="metallic-bronze" x1="15" y1="20" x2="105" y2="100" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#dfb295" />    {/* Soft copper highlight */}
-          <stop offset="35%" stopColor="#ca9c7f" />   {/* Mid metallic rose gold */}
-          <stop offset="65%" stopColor="#eba881" />   {/* Glowing copper sheen */}
-          <stop offset="85%" stopColor="#a36e52" />   {/* Deep shadow gold */}
-          <stop offset="100%" stopColor="#754730" />  {/* Rich dark bronze */}
+        {/* Specular premium luxury metallic brush copper/bronze primary gradient */}
+        <linearGradient id="bronze-primary" x1="40" y1="50" x2="160" y2="150" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#f7ebd8" />    {/* Highly polished golden-bronze specular highlight */}
+          <stop offset="20%" stopColor="#dfa785" />   {/* Core rose copper metal */}
+          <stop offset="50%" stopColor="#fcdbbd" />   {/* Secondary metallic shimmer luster */}
+          <stop offset="75%" stopColor="#b57a58" />   {/* Warm shadow bronze */}
+          <stop offset="100%" stopColor="#784428" />  {/* Deepest base copper shadow */}
         </linearGradient>
-        <radialGradient id="lens-flare" cx="50%" cy="35%" r="50%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-        </radialGradient>
-        <filter id="logo-drop-shadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="4" stdDeviation="3.5" floodColor="#0f172a" floodOpacity="0.18" />
+        
+        {/* Shaded/matte gradient for realistic 3D shadow chamfer and bevel profiles */}
+        <linearGradient id="bronze-shaded" x1="40" y1="50" x2="160" y2="150" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#ca9776" />    {/* Soft reflection matte bronze */}
+          <stop offset="35%" stopColor="#9c6646" />   {/* Deep shadow copper */}
+          <stop offset="70%" stopColor="#6d391e" />   {/* Dark base baseline */}
+          <stop offset="100%" stopColor="#32180a" />  {/* Ultimate black-bronze shadow groove */}
+        </linearGradient>
+
+        {/* 3D drop-shadow filter to separate the golden emblem of metallic foil from background */}
+        <filter id="logo-drop-shadow" x="-20%" y="-20%" width="140%" height="145%">
+          <feDropShadow dx="2" dy="8" stdDeviation="6" floodColor="#04060c" floodOpacity="0.45" />
         </filter>
       </defs>
       
       <g filter="url(#logo-drop-shadow)">
-        {/* Horizontal top bar with curved wings and tapered points */}
+        {/* 1. MAGIC BACKGROUND COSMIC HALO - Orbiting back dust curves (Drawn behind the T) */}
         <path 
-          d="M 28 35 C 38 32, 82 32, 92 35 C 88 38.5, 78 40, 60 40 C 42 40, 32 38.5, 28 35 Z" 
-          fill="url(#metallic-bronze)" 
+          d="M 32 110 C 22 84, 52 52, 94 48 C 130 44, 164 62, 172 82" 
+          stroke="url(#bronze-primary)" 
+          strokeWidth="0.8" 
+          opacity="0.35" 
+          strokeDasharray="2 3" 
+          fill="none" 
         />
+        {/* Specular cosmic gold dust particles along the back path */}
+        <circle cx="38" cy="98" r="1.2" fill="#ffd3b5" opacity="0.65" />
+        <circle cx="45" cy="80" r="1.8" fill="#dfa785" opacity="0.75" />
+        <circle cx="58" cy="64" r="1" fill="#fcdbbd" opacity="0.5" />
+        <circle cx="76" cy="54" r="2.2" fill="#ffd3b5" opacity="0.85" />
+        <path d="M 76,51 L 77,53 L 79,54 L 77,55 L 76,57 L 75,55 L 73,54 L 75,53 Z" fill="#ffffff" opacity="0.8" />
+        <circle cx="96" cy="50" r="1.5" fill="#f7ebd8" opacity="0.7" />
+        <circle cx="118" cy="54" r="2" fill="#dfa785" opacity="0.85" />
+        <circle cx="138" cy="62" r="1.2" fill="#fcdbbd" opacity="0.55" />
+        <circle cx="156" cy="74" r="2.4" fill="#ffd3b5" opacity="0.9" />
+        <path d="M 156,71 L 157,73 L 159,74 L 157,75 L 156,77 L 155,75 L 153,74 L 155,73 Z" fill="#ffffff" opacity="0.85" />
+        <circle cx="166" cy="88" r="1.6" fill="#f7ebd8" opacity="0.65" />
+
+        {/* 2. MAIN T EMBLEM - Horizontal crossbar Left Wing Section (with downward curve & scroll tip) */}
         <path 
-          d="M 28 35 C 40 33, 80 33, 92 35 L 89 33 C 74 31, 46 31, 31 33 Z" 
-          fill="url(#lens-flare)" 
+          d="M 100 56 L 68 56 C 60 56, 54 58, 54 63 C 54 67, 58 68, 64 67 C 76 65, 88 64.5, 100 64.5 Z" 
+          fill="url(#bronze-shaded)" 
+        />
+        
+        {/* Horizontal crossbar of the T - Right Wing Section (with tapered arrow-like tip) */}
+        <path 
+          d="M 100 56 L 132 56 C 140 56, 145 58, 145 61 C 145 64, 141 66, 135 66 C 124 65, 112 64.5, 100 64.5 Z" 
+          fill="url(#bronze-primary)" 
         />
 
-        {/* Central vertical stem with elegant spade tip */}
+        {/* Stem of the T - Left Bevel with hollow leaf split */}
         <path 
-          d="M 57 37 L 63 37 C 63 47, 65 57, 62 69 C 60 73, 64 79, 60 87 C 56 79, 60 73, 58 69 C 55 57, 57 47, 57 37 Z" 
-          fill="url(#metallic-bronze)" 
-        />
-        {/* Hollow inner teardrop motif at stem base */}
-        <path 
-          d="M 59 69 C 57.5 72, 57.5 76, 60 80 C 62.5 76, 62.5 72, 61 69 Z" 
-          fill="#1e293b" 
-          opacity="0.22" 
+          d="M 100 64.5 L 91 64.5 L 91 114 C 91 123, 83 129, 83 137 C 83 147, 93 151, 100 156 L 100 64.5 Z M 100 120 C 95 120, 91.5 126, 91.5 132 C 91.5 138, 95 143, 100 146 L 100 120 Z" 
+          fill="url(#bronze-shaded)" 
+          fillRule="evenodd"
         />
 
-        {/* Swooping flight trail looping around the stem for a dynamic jet path */}
+        {/* Stem of the T - Right Bevel with hollow leaf split */}
         <path 
-          d="M 33 55 C 26 53, 26 44, 40 44 C 54 44, 50 53, 66 51 C 76 49, 78 44, 86 40" 
-          stroke="url(#metallic-bronze)" 
+          d="M 100 64.5 L 109 64.5 L 109 114 C 109 123, 117 129, 117 137 C 117 147, 107 151, 100 156 L 100 64.5 Z M 100 120 C 105 120, 108.5 126, 108.5 132 C 108.5 138, 105 143, 100 146 L 100 120 Z" 
+          fill="url(#bronze-primary)" 
+          fillRule="evenodd"
+        />
+
+        {/* 3. MAGIC FOREGROUND COSMIC HALO - Orbiting front dust curves (Drawn in front of T stem) */}
+        <path 
+          d="M 172 82 C 182 104, 158 132, 118 140 C 78 148, 40 134, 32 110" 
+          stroke="url(#bronze-primary)" 
+          strokeWidth="0.8" 
+          opacity="0.35" 
+          strokeDasharray="2 3" 
+          fill="none" 
+        />
+        {/* Specular golden front particles wrapping around */}
+        <circle cx="172" cy="102" r="2.5" fill="#fcdbbd" opacity="0.95" />
+        <path d="M 172,99 L 173,101 L 175,102 L 173,103 L 172,105 L 171,103 L 169,102 L 171,101 Z" fill="#ffffff" opacity="0.9" />
+        <circle cx="168" cy="116" r="1.2" fill="#ffd3b5" opacity="0.75" />
+        <circle cx="156" cy="128" r="1.8" fill="#f7ebd8" opacity="0.8" />
+        <circle cx="138" cy="137" r="1.5" fill="#dfa785" opacity="0.85" />
+        <circle cx="118" cy="141" r="2" fill="#fcdbbd" opacity="0.9" />
+        <circle cx="96" cy="140" r="1.1" fill="#ffd3b5" opacity="0.65" />
+        <circle cx="76" cy="134" r="2.2" fill="#f7ebd8" opacity="0.85" />
+        <path d="M 76,131 L 77,133 L 79,134 L 77,135 L 76,137 L 75,135 L 73,134 L 75,133 Z" fill="#ffffff" opacity="0.8" />
+        <circle cx="58" cy="126" r="1.4" fill="#dfa785" opacity="0.75" />
+        <circle cx="45" cy="116" r="1.8" fill="#ffd3b5" opacity="0.8" />
+        <circle cx="36" cy="106" r="1" fill="#fcdbbd" opacity="0.5" />
+
+        {/* 4. FLIGHT PATH RIBBON LOOP (Tilted inner sweep loop) */}
+        <path 
+          d="M 82 120 C 44 120, 36 94, 52 82 C 68 70, 88 80, 100 90 C 112 100, 130 96, 148 84" 
+          stroke="url(#bronze-shaded)" 
+          strokeWidth="6" 
+          strokeLinecap="round" 
+          fill="none" 
+        />
+        <path 
+          d="M 82 120 C 44 120, 36 94, 52 82 C 68 70, 88 80, 100 90 C 112 100, 130 96, 148 84" 
+          stroke="url(#bronze-primary)" 
           strokeWidth="3.2" 
           strokeLinecap="round" 
           fill="none" 
         />
 
-        {/* Dynamic miniature taking-off airplane silhouette */}
-        <g transform="translate(84, 39) rotate(-20)">
-          {/* Fuselage & horizontal stabilisers */}
-          <path d="M-4 1 H4 L6 3.5 H7 L6 1 H10 L11 2 H12 L11 1 L12 0 L11 -1 L12 -1 L11 0 H10 L6 -1 H7 L6 -3.5 H4 L3 -1 H-4" fill="url(#metallic-bronze)" />
-          {/* Swept back wings */}
-          <path d="M 0.5 1 L 2 -4.5 H 3.5 L 2 1 Z" fill="url(#metallic-bronze)" />
-          <path d="M 0.5 -1 L 2 4.5 H 3.5 L 2 -1 Z" fill="url(#metallic-bronze)" stroke="url(#metallic-bronze)" strokeWidth="0.4" />
+        {/* Dynamic engine glittering stardust firetail trailing behind the passenger jet */}
+        <circle cx="126" cy="94" r="1" fill="#f7ebd8" opacity="0.6" />
+        <circle cx="132" cy="91" r="1.5" fill="#fcdbbd" opacity="0.8" />
+        <circle cx="138" cy="88" r="2.2" fill="#ffd3b5" opacity="0.95" />
+        <path d="M 138,85 L 139,87 L 141,88 L 139,89 L 138,91 L 137,89 L 135,88 L 137,87 Z" fill="#ffffff" opacity="0.9" />
+        <circle cx="144" cy="85" r="1" fill="#f7ebd8" opacity="0.75" />
+
+        {/* 5. METALLIC SWEPT-WING PASSENGER JET SILHOUETTE */}
+        <g transform="translate(148, 84) rotate(-18)">
+          <path 
+            d="M 16,0 L 14,2 L 15,4.5 L 12.5,4.5 L 9,2 L 1.5,2 L 4.5,7.5 L 1,7.5 L -4,2 L -10,2 L -10,-2 L -4,-2 L 1,-7.5 L 4.5,-7.5 L 1.5,-2 L 9,-2 L 12.5,-4.5 L 15,-4.5 L 14,-2 Z" 
+            fill="url(#bronze-primary)" 
+          />
+          
+          {/* Polished custom sparkly nose flare */}
+          <path 
+            d="M 23,-3.5 Q 23,0 26.5,0 Q 23,0 23,3.5 Q 23,0 19.5,0 Q 23,0 23,-3.5 Z" 
+            fill="#ffffff" 
+            opacity="0.9"
+          />
         </g>
       </g>
     </svg>
@@ -77,16 +153,19 @@ export function TravlinEmblem({ className = "w-12 h-12" }: { className?: string 
 export function TravlinLogoFull({ className = "flex flex-col items-center", isLight = false }: { className?: string; isLight?: boolean }) {
   return (
     <div className={className}>
-      <TravlinEmblem className="w-16 h-16" />
-      <h2 className={`text-2xl font-light tracking-[0.3em] mt-1.5 font-sans select-none pl-[0.3em] ${isLight ? "text-slate-900" : "text-white"}`}>
+      <h2 className={`text-2xl font-normal tracking-[0.380em] font-serif select-none pl-[0.380em] ${
+        isLight 
+          ? "bg-gradient-to-b from-slate-800 via-slate-900 to-slate-950 bg-clip-text text-transparent" 
+          : "bg-gradient-to-r from-[#ffd3b5] via-[#dfa785] to-[#fbc8a9] bg-clip-text text-transparent drop-shadow-[0_2px_4px_rgba(0,0,0,0.48)]"
+      }`}>
         TRAVLIN
       </h2>
-      <div className="flex items-center gap-2 mt-1.5 w-full max-w-[170px] opacity-80">
-        <div className={`h-[1px] flex-1 ${isLight ? "bg-slate-300" : "bg-slate-700"}`} />
-        <span className={`text-[8px] font-bold tracking-[0.2em] uppercase select-none whitespace-nowrap ${isLight ? "text-slate-500" : "text-slate-400"}`}>
+      <div className="flex items-center gap-3 mt-2 w-full max-w-[200px] opacity-90">
+        <div className={`h-[1px] flex-1 ${isLight ? "bg-slate-300" : "bg-slate-800"}`} />
+        <span className={`text-[8px] font-medium tracking-[0.28em] font-serif select-none whitespace-nowrap ${isLight ? "text-slate-500/95" : "text-[#dfa785]/90"}`}>
           TRAVEL EXPERT
         </span>
-        <div className={`h-[1px] flex-1 ${isLight ? "bg-slate-300" : "bg-slate-700"}`} />
+        <div className={`h-[1px] flex-1 ${isLight ? "bg-slate-300" : "bg-slate-800"}`} />
       </div>
     </div>
   );
@@ -115,6 +194,7 @@ export default function App() {
     name: "",
     phone: "",
     email: "",
+    service: "",
     message: ""
   });
 
@@ -153,9 +233,20 @@ export default function App() {
     e.preventDefault();
     if (formData.name && formData.email) {
       setFormSubmitted(true);
+      
+      const waText = `Hello TRAVLIN, I would like to submit a travel enquiry:\n\n` +
+        `• *Name*: ${formData.name}\n` +
+        `• *Phone*: ${formData.phone}\n` +
+        `• *Email*: ${formData.email}\n` +
+        `• *Service Interested*: ${formData.service || 'General Enquiry'}\n` +
+        `• *Message*: ${formData.message || 'None'}`;
+      
+      const whatsappUrl = `https://wa.me/919895405535?text=${encodeURIComponent(waText)}`;
+      window.open(whatsappUrl, "_blank");
+
       setTimeout(() => {
         setFormSubmitted(false);
-        setFormData({ name: "", phone: "", email: "", message: "" });
+        setFormData({ name: "", phone: "", email: "", service: "", message: "" });
       }, 4000);
     }
   };
@@ -164,6 +255,16 @@ export default function App() {
     e.preventDefault();
     if (modalFormData.name && modalFormData.email) {
       setModalFormSubmitted(true);
+      
+      const waText = `Hello TRAVLIN, I would like to submit a strategic enquiry:\n\n` +
+        `• *Name*: ${modalFormData.name}\n` +
+        `• *Email*: ${modalFormData.email}\n` +
+        `• *Category*: ${selectedInterest}\n` +
+        `• *Aspirations & Notes*: ${modalFormData.message || 'None'}`;
+      
+      const whatsappUrl = `https://wa.me/919895405535?text=${encodeURIComponent(waText)}`;
+      window.open(whatsappUrl, "_blank");
+
       setTimeout(() => {
         setModalFormSubmitted(false);
         setModalFormData({ name: "", email: "", message: "" });
@@ -303,7 +404,7 @@ export default function App() {
         price: "₹29,999",
         rating: "4.9",
         desc: "Heaven on earth. Experience pristine Shikara rides, frozen valleys of Gulmarg, and premium hotels.",
-        img: "https://images.unsplash.com/photo-1598324423063-fdf69bdfcfc1?auto=format&fit=crop&w=800&q=80"
+        img: "https://images.unsplash.com/photo-1595815771614-1244368f294a?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: "kerala",
@@ -316,6 +417,42 @@ export default function App() {
         rating: "4.8",
         desc: "Traverse standard houseboats, lush Munnar tea fields, and historic spice trails of God's Own Country.",
         img: "https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=700&q=80"
+      },
+      {
+        id: "lakshadweep",
+        title: "Lakshadweep Islands",
+        badge: "Exotic Beaches",
+        duration: "5D/4N",
+        pax: "2-8 pax",
+        type: "All-inclusive",
+        price: "On Request",
+        rating: "4.9",
+        desc: "Turquoise lagoons, crystal-clear water adventures, coral reef scuba diving, and white sandy beaches.",
+        img: "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: "manali-kasol",
+        title: "Manali & Kasol Magic",
+        badge: "Adventure Valley",
+        duration: "6D/5N",
+        pax: "2-15 pax",
+        type: "All-inclusive",
+        price: "On Request",
+        rating: "4.8",
+        desc: "Pine forests, high mountain passes, vibrant cafes of Parvati Valley, and riverside campsite stays.",
+        img: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: "jaipur",
+        title: "Jaipur Royal Heritage",
+        badge: "Heritage Tour",
+        duration: "7D/6N",
+        pax: "2-12 pax",
+        type: "All-inclusive",
+        price: "On Request",
+        rating: "4.9",
+        desc: "Explore the majestic Pink City of Jaipur, stunning Amber Fort, iconic Hawa Mahal, and beautiful heritage monuments.",
+        img: "https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=800&q=80"
       }
     ]
   };
@@ -355,18 +492,15 @@ export default function App() {
           {/* Trademark Logo */}
           <div 
             id="logo-brand-btn"
-            className="flex items-center gap-2.5 cursor-pointer group"
+            className="flex flex-col cursor-pointer group justify-center"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <TravlinEmblem className="w-10 h-10 transition-transform duration-500 group-hover:rotate-12" />
-            <div className="flex flex-col">
-              <span className="text-2xl font-semibold tracking-tight text-gray-900 leading-none">
-                TRAVLIN
-              </span>
-              <span className="text-[9px] font-bold tracking-[0.2em] text-gray-400 uppercase leading-none mt-1">
-                TRAVEL EXPERT
-              </span>
-            </div>
+            <span className="text-2xl font-bold tracking-tight text-gray-900 leading-none select-none group-hover:text-amber-700 transition-colors duration-200">
+              TRAVLIN
+            </span>
+            <span className="text-[10px] md:text-[11px] font-bold tracking-[0.280em] pl-0.5 text-[#b57a58] uppercase leading-none mt-1.5 whitespace-nowrap font-sans">
+              TRAVEL EXPERT
+            </span>
           </div>
 
           {/* Desktop Navigation Links */}
@@ -472,9 +606,9 @@ export default function App() {
           {/* Spacer for navbar */}
           <div className="h-16" />
 
-          {/* Core Overlapping Brand content centered (-mt-80 matching specification) */}
-          <div className="flex-1 flex flex-col items-center justify-center px-6">
-            <div id="hero-core-content" className="-mt-12 sm:-mt-24 md:-mt-80 flex flex-col items-center text-center max-w-4xl">
+          {/* Core Overlapping Brand content centered */}
+          <div className="flex-1 flex flex-col items-center justify-center px-6 py-6">
+            <div id="hero-core-content" className="mt-12 sm:mt-16 md:mt-24 flex flex-col items-center text-center max-w-4xl cursor-default">
               
               {/* Premium small uppercase subtitle */}
               <motion.div
@@ -483,15 +617,15 @@ export default function App() {
                 transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
                 className="mb-4"
               >
-                <span className="text-xs md:text-sm font-semibold text-gray-600 tracking-wider uppercase">
+                <span className="text-xs md:text-sm font-semibold text-gray-700 tracking-wider uppercase">
                   "Travel Beyond Borders. Achieve Beyond Dreams." 🌟
                 </span>
               </motion.div>
 
               {/* Master overlapping typography display */}
-              <div id="overlapping-typography" className="flex flex-col items-center justify-center mb-6 relative">
+              <div id="overlapping-typography" className="flex flex-col items-center justify-center mb-6 text-center">
                 <motion.h1
-                  className="text-6xl md:text-7xl lg:text-8xl font-normal text-gray-500 leading-none tracking-tighter"
+                  className="text-6xl md:text-7xl lg:text-8xl font-extrabold text-slate-400 leading-tight tracking-tighter uppercase"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.9, delay: 0.3 }}
@@ -499,8 +633,8 @@ export default function App() {
                   EXPLORE.
                 </motion.h1>
                 <motion.h1
-                  style={{ color: "#202A36", marginTop: "-12px" }}
-                  className="text-6xl md:text-7xl lg:text-8xl font-normal leading-none tracking-tighter"
+                  style={{ color: "#202A36" }}
+                  className="text-6xl md:text-7xl lg:text-8xl font-black leading-tight tracking-tighter uppercase -mt-2"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.9, delay: 0.5 }}
@@ -1020,41 +1154,11 @@ export default function App() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="text-xs font-bold tracking-widest text-[#ca9c7f] uppercase block mb-3">STUDY ABROAD</span>
             <h2 className="text-4xl md:text-5xl font-normal text-slate-900 tracking-tight mb-4">
-              Choose Your <span className="font-semibold text-[#202A36]">Dream Destination</span>
+              Your Gateway to <span className="font-semibold text-[#202A36]">Global Education</span>
             </h2>
             <p className="text-slate-500 font-light leading-relaxed">
-              Top universities, visa assistance, scholarships — we guide you every step of the way.
+              Admission assistance, visa processing, scholarships, housing, and pre-departure support — we guide you every step of the way.
             </p>
-          </div>
-
-          {/* Destinations Grid mapping exactly coordinates stated under specification */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-            {destinations.map((dest, i) => (
-              <motion.div
-                key={i}
-                className={`bg-white border border-gray-100/50 p-6 rounded-3xl hover:shadow-lg transition-transform duration-300 relative overflow-hidden group flex flex-col justify-between`}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-4xl select-none" role="img" aria-label={dest.country}>{dest.flag}</span>
-                    <span className="text-[10px] font-bold tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full uppercase">
-                      {dest.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-1">{dest.country}</h3>
-                  <p className="text-xs text-slate-500">{dest.desc}</p>
-                </div>
-
-                <div className="mt-6 flex items-center justify-between text-slate-800 text-xs font-medium cursor-pointer" onClick={() => {
-                  setSelectedInterest(`Study Abroad in ${dest.country}`);
-                  setContactModalOpen(true);
-                }}>
-                  <span>Learn Application Criteria</span>
-                  <ChevronRight className="w-4 h-4 text-[#202A36] group-hover:translate-x-1.5 transition-transform" />
-                </div>
-              </motion.div>
-            ))}
           </div>
 
           {/* Core Assistance Items list style */}
@@ -1346,6 +1450,26 @@ export default function App() {
                   </div>
 
                   <div className="flex items-start gap-4">
+                    <div className="p-3 bg-pink-50 border border-pink-100/60 rounded-xl text-pink-600 shadow-sm shrink-0">
+                      <Instagram className="w-5 h-5 text-pink-600" />
+                    </div>
+                    <div>
+                      <h4 className="text-[11px] uppercase tracking-wider font-bold text-pink-600">Instagram</h4>
+                      <p className="text-slate-800 font-semibold">
+                        <a 
+                          href="https://www.instagram.com/travlin_travelexpert?igsh=MWRjbW0wa3UxbTdqaQ==" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="hover:text-pink-600 transition-all duration-200 inline-flex items-center gap-1.5"
+                        >
+                          @travlin_travelexpert
+                          <span className="text-[10px] bg-pink-100 text-pink-800 px-1.5 py-0.5 rounded font-medium uppercase tracking-wider">Follow</span>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
                     <div className="p-3 bg-white border border-gray-150 rounded-xl text-slate-800 shadow-sm shrink-0">
                       <MapPin className="w-5 h-5 text-[#202A36]" />
                     </div>
@@ -1424,7 +1548,9 @@ export default function App() {
                       <div>
                         <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Service Interested In</label>
                         <select 
-                          name="message" // Bound values
+                          name="service"
+                          value={formData.service}
+                          onChange={handleInputChange}
                           required
                           className="w-full px-4 py-3 bg-slate-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-slate-800 focus:bg-white transition-all text-gray-950 cursor-pointer"
                         >
@@ -1498,10 +1624,29 @@ export default function App() {
             {/* Left main brand column */}
             <div className="md:col-span-5">
               <div className="flex flex-col items-start text-left mb-6">
-                <TravlinLogoFull className="flex flex-col items-start text-left mb-4" />
+                <div className="mb-4">
+                  <span className="text-2xl font-semibold text-white leading-none select-none">
+                    TRAVLIN
+                  </span>
+                  <div className="text-[10px] font-bold tracking-[0.280em] text-[#dfa785] uppercase leading-none mt-2 whitespace-nowrap font-sans">
+                    TRAVEL EXPERT
+                  </div>
+                </div>
                 <p className="text-xs text-slate-400 font-light leading-relaxed max-w-sm mt-4">
                   Your trusted partner for study abroad programs, flight ticketing, and unforgettable international and domestic tours. We turn travel dreams into journeys.
                 </p>
+                <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+                  <a 
+                    href="https://www.instagram.com/travlin_travelexpert?igsh=MWRjbW0wa3UxbTdqaQ==" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-pink-400 hover:text-white hover:bg-pink-600/25 hover:border-pink-500/50 transition-all duration-300 w-fit"
+                  >
+                    <Instagram className="w-4 h-4" />
+                    <span>Follow us on Instagram</span>
+                  </a>
+                  <span className="text-[10px] text-slate-500 font-mono">@travlin_travelexpert</span>
+                </div>
               </div>
             </div>
 
